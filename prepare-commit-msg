@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# To enable this hook, copy this file under name "prepare-commit-msg"
+# to your project folder, into .git/hooks directory.
+#
+# note: if the hook fails with a non-zero status, the commit is aborted
+
+branch="$(git rev-parse --abbrev-ref HEAD)" # current branch name
+if [ -n $branch ] ; then # branch name is not an empty string
+  issueName="$(echo $branch | grep -oP '(FOO|BAR|BAZ)-\d+')" # project keys of your JIRA projects, parsed from GIT branch name;
+  # see "project key" at https://confluence.atlassian.com/display/JIRA/Defining+a+Project#DefiningaProject-Creatingaproject
+  commitMessage=$(cat $1) # $1 means input parameter - which is file with the commit message
+  if [ -n $name ] && [[ $commitMessage != "$issueName"* ]] ; then # original commit message does not begins by issue name yet
+    echo "$issueName $commitMessage" > $1 # rewriting original commit message with prefixed one
+  fi
+fi
