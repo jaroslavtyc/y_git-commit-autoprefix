@@ -32,7 +32,7 @@ $ ...
 
 ***Usage***
 
-  * copy the file prepare-commit-msg into your own project, versioned by GIT, into project subdirectory .git/hooks
+  * copy the file hooks/prepare-commit-msg into your own project, versioned by GIT, into project subdirectory .git/hooks
   * preserve the name of the file (prepare-commit-msg), or merge the content with existing one
   * change strings FOO, BAR, BAZ to your [JIRA project key](https://confluence.atlassian.com/display/JIRA/Defining+a+Project#DefiningaProject-Creatingaproject)
   (if you have just single one, delete the other strings, including the pipe |)
