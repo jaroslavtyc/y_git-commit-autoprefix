@@ -37,4 +37,4 @@ EXPOLD-123 qux
   (optional: delete the unused project key strings, including trailing pipes |)
   * checkout (or create) a GIT branch in your project with name prefixed by corresponding JIRA issue (that means with preceding JIRA project key, like FOO-123-fix-user-color-settings)
   * commit something with a commit message, like "fix: used background color respects use settings"
-  * look to commit history, by `git log` for example, at observe the last commit message, it should be like "FOO-123 fix: used background color respects use settings" 
+  * look to commit history, by `git log` for example, and observe the last commit message, it should be like "FOO-123 fix: used background color respects use settings" 
