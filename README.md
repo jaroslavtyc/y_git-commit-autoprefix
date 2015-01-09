@@ -1,3 +1,5 @@
+*(author of OS-X bash compatibility is [evenh](https://github.com/evenh), thank)*
+
 For **automatic prefixing of GIT commit messages** by JIRA (*or whatever you dream up*) issue code.
 
 That is usable for [pairing commits at bitbucket.org with JIRA issues](https://blog.bitbucket.org/2012/04/30/linking-bitbucket-and-jira/).
