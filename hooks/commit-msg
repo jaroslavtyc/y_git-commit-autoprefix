@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# To enable this hook, copy this file under name "prepare-commit-msg"
+# To enable this hook, copy this file under name "commit-msg"
 # to your project folder, into .git/hooks directory.
 #
 # note: if the hook fails with a non-zero status, the commit is aborted
