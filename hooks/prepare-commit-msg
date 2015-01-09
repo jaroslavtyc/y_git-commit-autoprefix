@@ -5,6 +5,8 @@
 #
 # note: if the hook fails with a non-zero status, the commit is aborted
 
+jira_project_key="FOO|BAR|BAZ" # specify JIRA project keys here
+
 branch="$(git rev-parse --abbrev-ref HEAD)" # current branch name
 if [ -n ${branch} ] ; then # branch name is not an empty string
   issueName="$(echo $branch | grep -oP '(FOO|BAR|BAZ)-\d+')" # project keys of your JIRA projects, parsed from GIT branch name;
