@@ -27,12 +27,12 @@ EXPOLD-123 qux
 ```
  (commit message has been autoprefixed by project key, **parsed from GIT branch name**)
 
-*All the magic is made by [GIT prepare_commit_msg hook](http://git-scm.com/docs/githooks#_prepare_commit_msg)*
+*All the magic is made by [GIT commit_msg hook](http://git-scm.com/docs/githooks#_commit_msg)*
 
 ***Usage***
 
-  * copy the file *hooks/prepare-commit-msg* into your own project, versioned by GIT, into project subdirectory .git/hooks
-  * preserve the name of the file (prepare-commit-msg), or merge the content with existing one
+  * copy the file *hooks/commit-msg* into your own project, versioned by GIT, into project subdirectory .git/hooks
+  * preserve the name of the file (commit-msg), or merge the content with existing one
   * change strings FOO, BAR, BAZ in the file to your [JIRA project key](https://confluence.atlassian.com/display/JIRA/Defining+a+Project#DefiningaProject-Creatingaproject)
   (optional: delete the unused project key strings, including trailing pipes |)
   * checkout (or create) a GIT branch in your project with name prefixed by corresponding JIRA issue (that means with preceding JIRA project key, like FOO-123-fix-user-color-settings)
