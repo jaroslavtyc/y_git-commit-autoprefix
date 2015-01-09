@@ -9,11 +9,11 @@ jira_project_key="FOO|BAR|BAZ" # specify JIRA project keys here
 
 branch="$(git rev-parse --abbrev-ref HEAD)" # current branch name
 if [ -n ${branch} ] ; then # branch name is not an empty string
-  issueName="$(echo $branch | grep -oP '(FOO|BAR|BAZ)-\d+')" # project keys of your JIRA projects, parsed from GIT branch name;
+  issueName=`echo $branch | grep -Eo "(${jira_project_key})-[[:digit:]]+"` # project keys of your JIRA projects, parsed from GIT branch name;
   if [ -n ${issueName} ] ; then # an issue name has been parsed
-    # see "project key" at https://confluence.atlassian.com/display/JIRA/Defining+a+Project#DefiningaProject-Creatingaproject
+  	# see "project key" at https://confluence.atlassian.com/display/JIRA/Defining+a+Project#DefiningaProject-Creatingaproject
     commitMessage=$(cat $1) # $1 means input parameter - which is file with the commit message
-    if [ -n ${commitMessage} ] && [[ ${commitMessage} != "$issueName"* ]] ; then # original commit message does not start with issue name yet
+    if [ -n "${commitMessage}" ] && [[ "${commitMessage}" != "$issueName"* ]] ; then  # original commit message does not start with issue name yet
       echo "$issueName $commitMessage" > $1 # rewriting original commit message with prefixed one
     fi
   fi
