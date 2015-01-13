@@ -1,8 +1,12 @@
 For **automatic prefixing of GIT commit messages** by JIRA (*or whatever you dream up*) issue code.
 
-That is usable for [pairing commits at bitbucket.org with JIRA issues](https://blog.bitbucket.org/2012/04/30/linking-bitbucket-and-jira/).
+That is suitable for [pairing commits at bitbucket.org with JIRA issues](https://blog.bitbucket.org/2012/04/30/linking-bitbucket-and-jira/).
 
-***Example***
+##### [*Example*](#example)
+##### [*Usage*](#usage)
+
+
+#### *Example*
 
 ```
 $ git branch
@@ -29,7 +33,9 @@ EXPOLD-123 qux
 
 *All the magic is made by [GIT commit_msg hook](http://git-scm.com/docs/githooks#_commit_msg)*
 
-***Usage***
+### *Usage*
+
+*[Master branch](/jaroslavtyc/git-commit-autoprefix/tree/master) is for __Linux__ bash format. For OSX use the [osx-compatible branch](/jaroslavtyc/git-commit-autoprefix/tree/osx-compatible) instead.*
 
   * copy the file *hooks/commit-msg* into your own project, versioned by GIT, into project subdirectory .git/hooks
   * preserve the name of the file (commit-msg), or merge the content with existing one
