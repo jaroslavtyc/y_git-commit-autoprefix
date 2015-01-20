@@ -6,15 +6,16 @@
 # note: if the hook fails with a non-zero status, the commit is aborted
 
 jira_project_key="FOO|BAR|BAZ" # specify JIRA project keys here
+# see "project key" at https://confluence.atlassian.com/display/JIRA/Defining+a+Project#DefiningaProject-Creatingaproject
 
 branch="$(git rev-parse --abbrev-ref HEAD)" # current branch name
 if [ -n "${branch}" ] ; then # branch name is not an empty string
-  issueName="$(echo ${branch} | grep -oP '('${jira_project_key}')-\d+')" # project keys of your JIRA projects, parsed from GIT branch name;
-  if [ -n "${issueName}" ] ; then # an issue name has been parsed
-    # see "project key" at https://confluence.atlassian.com/display/JIRA/Defining+a+Project#DefiningaProject-Creatingaproject
+  issueKey="$(echo ${branch} | grep -oP '('${jira_project_key}')-\d+' | tr [:cntrl:] ' ' | sed 's/\s*$//')" # issue key(s) of your JIRA project, parsed from GIT branch name;
+  # issue key is build from project key, followed by an issue number (delimited by dash); FOO-123
+  if [ -n "${issueKey}" ] ; then # an issue key(s) has been parsed
     commitMessage=$(cat $1) # $1 means input parameter - which is file with the commit message
-    if [ -n "${commitMessage}" ] && [[ ${commitMessage} != "${issueName}"* ]] ; then # original commit message does not start with issue name yet
-      echo "$issueName $commitMessage" > $1
+    if [ -n "${commitMessage}" ] && [[ ${commitMessage} != "${issueKey}"* ]] ; then # original commit message does not start with issue key(s) yet
+      echo "$issueKey $commitMessage" > $1
     fi
   fi
 fi
