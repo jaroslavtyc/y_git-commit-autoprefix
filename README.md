@@ -49,5 +49,5 @@ EXPOLD-123 qux
 ### *Hints*
 
 Did you know you can share same GIT branch with more JIRA issues?
-Just prefix the branch name by issue codes, like FOO-123-BAR-789-baz.
-The hook will take care about proper prefixing of your commits (since commit ad93fcaaa7f199617f5ca7839849c9668266d221, 2015-01-20).
+  * just prefix the branch name by issue codes, like FOO-123-BAR-789-baz
+  * the hook will take care about proper prefixing of your commits (since commit ad93fcaaa7f199617f5ca7839849c9668266d221, 2015-01-20)
