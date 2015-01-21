@@ -4,6 +4,7 @@ That is suitable for [pairing commits at bitbucket.org with JIRA issues](https:/
 
 ##### [*Example*](#example)
 ##### [*Usage*](#usage)
+##### [*Hints*](#hints)
 
 
 #### *Example*
@@ -44,3 +45,9 @@ EXPOLD-123 qux
   * checkout (or create) a GIT branch in your project with name prefixed by corresponding JIRA issue (that means with preceding JIRA project key, like FOO-123-fix-user-color-settings)
   * commit something with a commit message, like "fix: used background color respects use settings"
   * look to commit history, by `git log` for example, and observe the last commit message, it should be like "FOO-123 fix: used background color respects use settings" 
+
+### *Hints*
+
+Did you know you can share same GIT branch with more JIRA issues?
+Just prefix the branch name by issue codes, like FOO-123-BAR-789-baz.
+The hook will take care about proper prefixing of your commits (since commit ad93fcaaa7f199617f5ca7839849c9668266d221, 2015-01-20).
