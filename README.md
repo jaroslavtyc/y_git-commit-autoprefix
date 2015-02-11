@@ -51,3 +51,10 @@ EXPOLD-123 qux
 Did you know you can share same GIT branch with more JIRA issues?
   * just prefix the branch name by issue codes, like FOO-123-BAR-789-baz
   * the hook will take care about proper prefixing of your commits (since commit ad93fcaaa7f199617f5ca7839849c9668266d221, 2015-01-20)
+
+##### Border by remaining merged branches?
+After branch merge via bitbucket and its pull request, the branch _can be removed on server_.
+
+But what about you and your local?
+
+Try [**git up**](https://github.com/aanand/git-up), one save command solve this and something more.
