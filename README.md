@@ -2,9 +2,9 @@ For **automatic prefixing of GIT commit messages** by JIRA (*or whatever you dre
 
 That is suitable for [pairing commits at bitbucket.org with JIRA issues](https://blog.bitbucket.org/2012/04/30/linking-bitbucket-and-jira/).
 
-##### [*Example*](#example)
-##### [*Usage*](#usage)
-##### [*Hints*](#hints)
+##### [*Example*](#example-1)
+##### [*Usage*](#usage-1)
+##### [*Hints*](#hints-1)
 
 
 #### *Example*
