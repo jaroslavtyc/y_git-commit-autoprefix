@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# To enable this hook, copy this file under name "commit-msg"
+# to your project folder, into .git/hooks directory and
+#
+# note: if the hook fails with a non-zero status, the commit is aborted
+
+branch="$(git rev-parse --abbrev-ref HEAD)" # current branch name
+if [ -n "${branch}" ]; then # branch name is not an empty string
+  issueKey="$(echo "${branch}" | grep --only-matching --perl-regexp '^\d+' | tr [:cntrl:] ' ' | sed 's/\s*$//')" # issue key of your MasterShop project, parsed from GIT branch name;
+  if [ -n "${issueKey}" ]; then # an issue key has been parsed
+    issuePrefix="${issueKey}:"
+    commitMessage=$(cat "$1") # $1 means input parameter - which is file with the commit message
+    if [ -n "${commitMessage}" ] && [[ ${commitMessage} != "${issuePrefix}"* && ${commitMessage} != "fixup!"* && ${commitMessage} != "squash!"* ]]; then # original commit message does not start with issue key yet
+      echo "$issuePrefix $commitMessage" >"$1" # replace original commit message with new one with leading issue number
+    fi
+  fi
+fi
